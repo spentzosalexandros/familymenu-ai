@@ -1,0 +1,7 @@
+[
+  { "url": "/?tab=today", "out": "shots/final/10-today-scrolled.png", "actions": [ { "scroll": { "selector": ".ios-scroll", "y": 640 }, "after": 600 } ] },
+  { "url": "/?tab=shop", "out": "shots/final/19-shop.png" },
+  { "url": "/?tab=shop&lang=en", "out": "shots/final/33-shop-en.png" },
+  { "url": "/?onboarding=location", "out": "shots/final/04-onboarding-location.png", "actions": [
+    { "clickText": "Χρήση τοποθεσίας", "after": 500 }, { "clickText": "Να επιτρέπεται μία φορά", "after": 900 } ] }
+]

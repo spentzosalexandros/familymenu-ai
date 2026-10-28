@@ -1,0 +1,27 @@
+// UI kit — import from 'src/ui' in feature code:
+//   import { Screen, Button, ListGroup, ListRow, FoodImage, SafeBadge, spring } from '../../ui'
+
+export { Button, IconButton } from './Button'
+export type { ButtonProps, ButtonVariant, ButtonTone, ButtonSize, IconButtonProps } from './Button'
+export { ListGroup, ListRow } from './List'
+export type { ListGroupProps, ListRowProps } from './List'
+export { Card, SectionHeader, EmptyState } from './Card'
+export type { CardProps, SectionHeaderProps, EmptyStateProps } from './Card'
+export { Chip, TriStateChip, TRI_STATE_LABELS } from './Chip'
+export type { ChipProps, TriStateChipProps } from './Chip'
+export { SegmentedControl, Switch, Stepper, Slider } from './Controls'
+export type { SegmentedControlProps, SegmentOption, SwitchProps, StepperProps, SliderProps } from './Controls'
+export { Badge, Dot, Avatar, AvatarStack, ProgressBar, BudgetBar, Ring, AnimatedNumber, SafeBadge } from './Display'
+export type { BadgeProps, BadgeTone, AvatarProps, ProgressBarProps, BudgetBarProps, RingProps, AnimatedNumberProps, SafeBadgeProps } from './Display'
+export { FoodImage, foodEmoji } from './FoodImage'
+export type { FoodImageProps } from './FoodImage'
+export { SwipeableRow } from './SwipeableRow'
+export type { SwipeAction, SwipeableRowProps } from './SwipeableRow'
+export { spring, ease, fade, tap, tapTransition, popIn, prefersReducedMotion } from './motion'
+export { VelocityTracker, project, rubberband, clamp, getDeviceScale, suppressNextClick, haptic } from './gestures'
+
+// Scaffold + context menu live in src/app but are part of the kit.
+export { Screen, ProfileButton } from '../app/Screen'
+export type { ScreenProps } from '../app/Screen'
+export { ContextMenu } from '../app/ContextMenu'
+export type { ContextMenuItem, ContextMenuProps } from '../app/ContextMenu'

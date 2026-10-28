@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="el" data-theme="light" data-palette="olive">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+    />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F1E7" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="FamilyMenu" />
+    <meta name="description" content="FamilyMenu AI — εβδομαδιαίο οικογενειακό πλάνο φαγητού (διαδραστικό mockup)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>FamilyMenu AI</title>
+    <script>
+      // Apply the saved theme/palette before first paint (no flash). Mirrors src/store.
+      ;(function () {
+        try {
+          var q = new URLSearchParams(location.search)
+          var raw = q.get('reset') === '1' ? null : localStorage.getItem('familymenu-demo-v1')
+          var s = raw ? (JSON.parse(raw).state || {}).settings || {} : {}
+          var theme = q.get('theme') || s.theme || 'auto'
+          var palette = q.get('palette') || s.palette || 'olive'
+          var lang = q.get('lang') || s.lang || 'el'
+          if (theme === 'auto') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          var d = document.documentElement
+          d.dataset.theme = theme
+          d.dataset.palette = palette
+          d.lang = lang
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+/* mobile-native baseline + global element defaults (in @layer base so Tailwind utilities win) */
+@layer base {
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior: none;
+  background: var(--stage);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  color: var(--label);
+  background: var(--stage);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 300ms ease;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Controls: instant taps, no text selection or long-press callout. Content text stays selectable. */
+button,
+a,
+[role='button'],
+[role='tab'],
+[role='switch'],
+[role='slider'],
+[role='menuitem'],
+[role='radio'],
+[role='checkbox'],
+label {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+/* Inputs at 16px never trigger iOS zoom. */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+}
+
+@layer components {
+/* Everything inside the phone screen scrolls without visible scrollbars (iOS overlays them). */
+.phone-screen,
+.phone-screen * {
+  scrollbar-width: none;
+}
+.phone-screen ::-webkit-scrollbar {
+  display: none;
+}
+
+/* Vertical scrollers inside the app: native momentum, no scroll chaining, horizontal stays ours
+   (edge-swipe back), pinch-zoom stays with the browser. */
+.ios-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Horizontal scrollers (carousels, chip rows) */
+.ios-hscroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  touch-action: pan-x pan-y pinch-zoom;
+  scrollbar-width: none;
+}
+.ios-hscroll::-webkit-scrollbar {
+  display: none;
+}
+
+}
+
+/* Theme switches ease instead of flashing (apple-design §14). */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

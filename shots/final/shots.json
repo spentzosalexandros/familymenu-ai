@@ -1,0 +1,55 @@
+[
+  { "url": "/?onboarding=welcome", "out": "shots/final/01-welcome.png" },
+  { "url": "/?onboarding=kids-taste", "out": "shots/final/02-onboarding-kids-taste.png" },
+  { "url": "/?onboarding=budget", "out": "shots/final/03-onboarding-budget.png" },
+  { "url": "/?onboarding=location", "out": "shots/final/04-onboarding-location.png", "actions": [
+    { "clickText": "Χρήση τοποθεσίας", "after": 500 }, { "clickText": "Να επιτρέπεται μία φορά", "after": 900 } ] },
+  { "url": "/?onboarding=location", "out": "shots/final/05-onboarding-generating.png", "actions": [
+    { "eval": "__fm.actions.setOnboardingStep('generating')", "after": 1600 } ] },
+  { "url": "/?onboarding=ready", "out": "shots/final/06-onboarding-ready.png" },
+  { "url": "/?onboarding=paywall", "out": "shots/final/07-paywall.png" },
+  { "url": "/?onboarding=paywall", "out": "shots/final/08-subscription-sheet.png", "actions": [
+    { "clickText": "Ξεκίνα 7 μέρες δωρεάν", "after": 900 } ] },
+  { "url": "/?tab=today", "out": "shots/final/09-today.png" },
+  { "url": "/?tab=today", "out": "shots/final/10-today-scrolled.png", "actions": [
+    { "scroll": { "selector": ".ios-scroll", "y": 640 }, "after": 500 } ] },
+  { "url": "/?screen=recipe&id=chicken-giouvetsi&mealId=tue-lunch", "out": "shots/final/11-recipe.png" },
+  { "url": "/?screen=recipe&id=chicken-giouvetsi&mealId=tue-lunch", "out": "shots/final/12-recipe-ingredients.png", "actions": [
+    { "scroll": { "selector": ".ios-scroll", "y": 1100 }, "after": 500 } ] },
+  { "url": "/?modal=cook&id=chicken-giouvetsi", "out": "shots/final/13-cook-mode.png", "actions": [
+    { "clickText": "Επόμενο", "after": 500 }, { "clickText": "Επόμενο", "after": 600 } ] },
+  { "url": "/?tab=week", "out": "shots/final/14-week.png" },
+  { "url": "/?tab=week&weekday=thu", "out": "shots/final/15-week-thursday.png" },
+  { "url": "/?tab=week&weekday=tue", "out": "shots/final/16-week-context-menu.png", "actions": [
+    { "wait": 400 }, { "longpress": "[data-week-meal='tue-lunch']", "ms": 750, "after": 600 } ] },
+  { "url": "/?sheet=swap&mealId=tue-lunch", "out": "shots/final/17-swap-sheet.png" },
+  { "url": "/?tab=week&weekday=tue", "out": "shots/final/18-swap-done-undo-toast.png", "actions": [
+    { "wait": 400 }, { "eval": "__fm.nav.openSheet('swap', { mealId: 'tue-lunch' })", "after": 1000 },
+    { "clickText": "Μακαρόνια με κιμά", "after": 1800 } ] },
+  { "url": "/?tab=shop", "out": "shots/final/19-shop.png" },
+  { "url": "/?tab=shop", "out": "shots/final/20-shop-cart-pantry.png", "actions": [
+    { "scroll": { "selector": ".ios-scroll", "y": 420 }, "after": 400 },
+    { "click": "[aria-label^='Σημείωσε ότι το πήρες:']", "after": 900 },
+    { "click": "[aria-label^='Σημείωσε ότι το πήρες:']", "after": 900 },
+    { "dragEl": { "selector": "[aria-label^='Σημείωσε ότι το πήρες:']", "index": 1, "fromX": 0.8, "dx": -320, "steps": 14 }, "after": 1200 } ] },
+  { "url": "/?tab=shop&sheet=compare", "out": "shots/final/21-shop-compare.png" },
+  { "url": "/?tab=shop&sheet=share", "out": "shots/final/22-shop-share.png" },
+  { "url": "/?tab=family", "out": "shots/final/23-family.png" },
+  { "url": "/?screen=child&id=eleni", "out": "shots/final/24-child-eleni.png" },
+  { "url": "/?sheet=feedback&mealId=mon-dinner", "out": "shots/final/25-feedback-filled.png", "actions": [
+    { "click": "[data-rating='nikos-all']", "after": 300 }, { "click": "[data-rating='eleni-none']", "after": 700 } ] },
+  { "url": "/?sheet=feedback&mealId=mon-dinner", "out": "shots/final/26-feedback-ai-response.png", "actions": [
+    { "click": "[data-rating='nikos-all']", "after": 300 }, { "click": "[data-rating='eleni-none']", "after": 500 },
+    { "clickText": "Αποστολή", "after": 5000 } ] },
+  { "url": "/?tab=today&time=16:30&notify=tue-lunch", "out": "shots/final/27-notification-1630.png", "wait": 300 },
+  { "url": "/?modal=recap&day=sun", "out": "shots/final/28-recap.png" },
+  { "url": "/?modal=recap&day=sun", "out": "shots/final/29-recap-next-week.png", "actions": [
+    { "clickText": "Φτιάξε την επόμενη εβδομάδα", "after": 5500 } ] },
+  { "url": "/?sheet=profile", "out": "shots/final/30-profile.png" },
+  { "url": "/?tab=today", "desktop": true, "out": "shots/final/31-desktop-presenter.png" },
+  { "url": "/?tab=today&lang=en&theme=dark", "out": "shots/final/32-today-en-dark.png" },
+  { "url": "/?tab=shop&lang=en", "out": "shots/final/33-shop-en.png" },
+  { "url": "/?tab=week&theme=dark&palette=tomato&weekday=wed", "out": "shots/final/34-week-dark-tomato.png" },
+  { "url": "/?tab=family&lang=en&theme=dark&palette=aegean", "out": "shots/final/35-family-en-dark-aegean.png" },
+  { "url": "/?tab=week&lang=en&theme=dark&palette=aegean", "desktop": true, "out": "shots/final/36-desktop-en-dark-aegean.png" }
+]
