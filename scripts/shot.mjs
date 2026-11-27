@@ -14,6 +14,7 @@
  *   --port <n>            dev-server port (each agent uses its own; default 5180)
  *   --cache <dir>         Vite cache dir (default node_modules/.vite-<port>)
  *   --url <path>          path + query, e.g. "/?tab=week&theme=dark"
+ *   --base <path>         serve the app under a base path, e.g. /familymenu-ai/ (as on GitHub Pages)
  *   --out <file.png>      output path (folders are created)
  *   --desktop             1440×900 @1x (framed iPhone + presenter panel); default is 393×852 @2x
  *   --wait <ms>           extra wait after load (default 0; a 700 ms settle is always applied)
@@ -44,6 +45,7 @@ function parseArgs(argv) {
       case '--port': a.port = Number(next()); break
       case '--cache': a.cache = next(); break
       case '--url': a.url = next(); break
+      case '--base': a.base = next(); break
       case '--out': a.out = next(); break
       case '--desktop': a.desktop = true; break
       case '--wait': a.wait = Number(next()); break
@@ -181,12 +183,13 @@ async function main() {
     root: ROOT,
     configFile: path.join(ROOT, 'vite.config.ts'),
     cacheDir,
+    base: args.base ?? '/',
     logLevel: 'error',
     clearScreen: false,
     server: { port: args.port, strictPort: true, host: '127.0.0.1' },
   })
   await server.listen()
-  const base = `http://127.0.0.1:${args.port}`
+  const base = `http://127.0.0.1:${args.port}${(args.base ?? '/').replace(/\/$/, '')}`
 
   const puppeteer = (await import('puppeteer-core')).default
   const browser = await puppeteer.launch({

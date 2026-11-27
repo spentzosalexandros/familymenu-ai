@@ -5,6 +5,7 @@ import type { PointerEvent as RPointerEvent } from 'react'
 import { S, useT } from '../i18n'
 import type { AlertAction, Banner } from '../store'
 import { getState, useAppStore } from '../store'
+import { asset } from '../ui/asset'
 import { VelocityTracker, getDeviceScale, rubberband } from '../ui/gestures'
 import { spring } from '../ui/motion'
 import { useDevice } from './device'
@@ -95,7 +96,7 @@ function NotificationBanner({ banner }: { banner: Banner }) {
         className="flex cursor-pointer touch-none items-start gap-2.5 rounded-[24px] p-3 pr-3.5 select-none material-thick shadow-[0_12px_40px_-8px_rgba(0,0,0,0.3),0_0_0_0.5px_var(--separator)]"
       >
         <span className="mt-0.5 flex size-[38px] shrink-0 items-center justify-center overflow-hidden rounded-[9px] text-[22px]">
-          {banner.icon ? banner.icon : <img src="/icon.svg" alt="" className="size-full" draggable={false} />}
+          {banner.icon ? banner.icon : <img src={asset('/icon.svg')} alt="" className="size-full" draggable={false} />}
         </span>
         <span className="min-w-0 flex-1">
           <span className="flex items-baseline justify-between gap-2">

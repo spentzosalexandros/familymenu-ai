@@ -7,7 +7,7 @@ import type { MemberId, RecapStats } from '../../data/types'
 import { closeModal, navigate } from '../../app'
 import { formatEUR, formatMinutes, useLang, useT, useTp } from '../../i18n'
 import { actions, getState, useAppStore, useBudget, usePlan, usePlanCost, useWeek, useWeekIndex } from '../../store'
-import { AnimatedNumber, Avatar, Badge, BudgetBar, Button, FoodImage, ProgressBar, Ring, Screen, spring } from '../../ui'
+import { AnimatedNumber, Avatar, Badge, BudgetBar, Button, FoodImage, ProgressBar, Ring, Screen, asset, spring } from '../../ui'
 import { memberOf } from './shared'
 import { NAME_ACC, NAME_GEN, T } from './strings'
 
@@ -364,7 +364,7 @@ function Ready() {
             >
               {/* Plain <img>: FoodImage can stay invisible for an already-cached image (see notes). */}
               <img
-                src={r?.image ?? `/images/food/${m.recipeId}.jpg`}
+                src={asset(r?.image ?? `/images/food/${m.recipeId}.jpg`)}
                 alt={r ? t(r.name) : ''}
                 draggable={false}
                 className="size-16 shrink-0 self-start rounded-[12px] bg-fill-3 object-cover"

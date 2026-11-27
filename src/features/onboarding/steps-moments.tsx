@@ -7,7 +7,7 @@ import { DAY_IDS, planSummary, recipes, storeById, week } from '../../data'
 import { toast, useDevice, useStatusBarStyle } from '../../app'
 import { S, formatEUR, useLang, useT, useTp } from '../../i18n'
 import { actions, useBudget, usePantry, usePlan, usePrefs } from '../../store'
-import { BudgetBar, Button, FoodImage, spring } from '../../ui'
+import { BudgetBar, Button, FoodImage, asset, spring } from '../../ui'
 import { useDraft } from './draft'
 import { StepPage, goNext, goTo } from './layout'
 import { T } from './strings'
@@ -38,7 +38,7 @@ export function WelcomeStep() {
       <div className="relative -mt-6 flex min-h-0 flex-1 flex-col px-6">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring.gentle, delay: 0.05 }}>
           <div className="flex items-center gap-2">
-            <img src="/icon.svg" alt="" className="size-8 rounded-[8px] shadow-card" />
+            <img src={asset('/icon.svg')} alt="" className="size-8 rounded-[8px] shadow-card" />
             <span className="text-headline tracking-[-0.01em] text-label">{t(S.appName)}</span>
           </div>
           <h1 className="mt-3 text-[30px] leading-[1.12] font-bold tracking-[-0.02em] text-label">

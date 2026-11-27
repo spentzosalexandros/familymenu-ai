@@ -2,6 +2,7 @@ import { ArrowsClockwiseIcon, BookOpenTextIcon, ChatCircleTextIcon, HammerIcon, 
 import { S, useT } from '../i18n'
 import type { Text } from '../i18n'
 import { actions } from '../store'
+import { asset } from '../ui/asset'
 import { Button } from '../ui/Button'
 import { Card } from '../ui/Card'
 import { Badge } from '../ui/Display'
@@ -104,7 +105,7 @@ export function OnboardingPlaceholder({ step }: { step?: string }) {
   const t = useT()
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-bg-grouped px-8 text-center">
-      <img src="/icon.svg" alt="" className="mb-5 size-20 rounded-[20px] shadow-raised" />
+      <img src={asset('/icon.svg')} alt="" className="mb-5 size-20 rounded-[20px] shadow-raised" />
       <Badge tone="accent">{t(S.placeholder.badge)}</Badge>
       <h1 className="mt-3 text-title-1 text-label">OnboardingFlow</h1>
       <p className="mt-2 text-subhead text-label-2">

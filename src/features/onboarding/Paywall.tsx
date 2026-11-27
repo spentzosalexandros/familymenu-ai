@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDevice } from '../../app'
 import { S, formatEUR, localeOf, useLang, useT } from '../../i18n'
 import { actions, useDemoDay, useTrial } from '../../store'
-import { Button, IconButton, spring } from '../../ui'
+import { Button, IconButton, asset, spring } from '../../ui'
 import { StepPage } from './layout'
 import { T } from './strings'
 
@@ -42,7 +42,7 @@ export function PaywallStep() {
         }
       >
         <div className="flex flex-col items-center px-6 pb-5 text-center">
-          <img src="/icon.svg" alt="" className="size-[72px] rounded-[18px] shadow-raised" />
+          <img src={asset('/icon.svg')} alt="" className="size-[72px] rounded-[18px] shadow-raised" />
           <span className="mt-3 rounded-full bg-accent-tint px-2.5 py-0.5 text-caption font-semibold text-accent-ink">{t(T.paywall.badge)}</span>
           <h1 className="mt-2 text-title-1 font-bold text-balance text-label">{t(T.paywall.title)}</h1>
           <p className="mt-1.5 text-body text-label-2">{t(T.paywall.sub)}</p>
@@ -161,7 +161,7 @@ function SubscribeSheet({ open, onClose, onDone }: { open: boolean; onClose: () 
               <IconButton label={t(S.close)} icon={<XIcon weight="bold" />} variant="gray" size={30} onClick={onClose} disabled={phase !== 'idle'} />
             </div>
             <div className="flex items-center gap-3 px-5 pt-4">
-              <img src="/icon.svg" alt="" className="size-14 rounded-[14px] shadow-card" />
+              <img src={asset('/icon.svg')} alt="" className="size-14 rounded-[14px] shadow-card" />
               <div className="min-w-0">
                 <div className="text-headline text-label">{t(T.subscribe.product)}</div>
                 <div className="text-subhead text-label-2">{t(T.subscribe.plan)}</div>

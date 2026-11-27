@@ -6,7 +6,7 @@ import { family, stores as dataStores } from '../../data'
 import type { StoreId } from '../../data/types'
 import { S, formatEUR, formatNumber, joinNames, useLang, useT, useTp } from '../../i18n'
 import { PALETTES, actions, usePrefs, useSettings, useTrial } from '../../store'
-import { Avatar, AvatarStack, Card, ListGroup, ListRow, ProgressBar, Screen, SegmentedControl, Slider, Switch } from '../../ui'
+import { Avatar, AvatarStack, Card, ListGroup, ListRow, ProgressBar, Screen, SegmentedControl, Slider, Switch, asset } from '../../ui'
 import { ALLERGEN_LABEL, DIET_LABEL, FALLBACK_STORES, PS } from './strings'
 
 /** Profile & settings (large sheet, opened from the avatar in the nav bar). */
@@ -198,7 +198,7 @@ export function ProfileScreen() {
         {/* about */}
         <ListGroup header={t(PS.about)} footer={t(PS.demoNote)}>
           <ListRow icon={<InfoIcon weight="fill" />} iconBg="#8E8E93" title={t(PS.version)} value={t(PS.versionValue)} />
-          <ListRow icon={<CameraIcon weight="fill" />} iconBg="#34C759" title={t(PS.credits)} subtitle={t(PS.creditsSub)} onPress={() => window.open('/images/CREDITS.md', '_blank', 'noopener')} />
+          <ListRow icon={<CameraIcon weight="fill" />} iconBg="#34C759" title={t(PS.credits)} subtitle={t(PS.creditsSub)} onPress={() => window.open(asset('/images/CREDITS.md'), '_blank', 'noopener')} />
           <ListRow icon={<ArrowCounterClockwiseIcon weight="bold" />} iconBg="#FF9500" title={t(PS.resetDemo)} destructive onPress={confirmReset} chevron={false} />
         </ListGroup>
       </div>

@@ -6,6 +6,7 @@ import type { L10n } from '../data/types'
 import { useT } from '../i18n'
 import type { Palette } from '../store'
 import { PALETTES, actions, useSettings } from '../store'
+import { asset } from '../ui/asset'
 import { SegmentedControl } from '../ui/Controls'
 import { JOURNEYS, resetDemo, sendFeedbackNotification, skipToSunday } from './journeys'
 import { Screen } from './Screen'
@@ -200,7 +201,7 @@ export function PresenterPanel() {
   return (
     <aside className="w-[380px] shrink-0" aria-label={t(P.sheetTitle)}>
       <header className="mb-5 flex items-center gap-3 px-1">
-        <img src="/icon.svg" alt="" className="size-12 rounded-[12px] shadow-[0_4px_14px_-4px_rgba(0,0,0,0.3)]" />
+        <img src={asset('/icon.svg')} alt="" className="size-12 rounded-[12px] shadow-[0_4px_14px_-4px_rgba(0,0,0,0.3)]" />
         <div>
           <h1 className="text-title-3 font-bold text-label">{t(P.title)}</h1>
           <p className="text-footnote text-label-2">{t(P.subtitle)}</p>

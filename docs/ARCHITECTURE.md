@@ -340,3 +340,4 @@ Then look at the PNGs with the Read tool, in light + dark and EL + EN.
 - Don't add hover-only affordances; `hover:` in Tailwind v4 is already gated to real hover devices.
 - Inputs: 16 px font minimum (iOS zoom). Hit targets ≥ 44 px (`before:` extension trick is used in the kit).
 - Data safety: never show a dish with an allergen to an allergic member; use `SafeBadge` / `isSafeFor`.
+- GitHub Pages serves the app under `/familymenu-ai/` (`.github/workflows/deploy.yml` builds with `--base`). Files from `public/` go through `asset('/images/…')` from the kit; never write a bare `'/…'` path in `src`. Data keeps the root paths (`/images/food/<id>.jpg`): `FoodImage` resolves them. Test with `node scripts/shot.mjs --base /familymenu-ai/ …`.

@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import { recipes } from '../data'
 import { useLang } from '../i18n'
+import { asset } from './asset'
 
 export type FoodImageProps = {
   /** Recipe id → /images/food/<id>.jpg (and its name as alt text). */
@@ -78,7 +79,8 @@ export function FoodImage({
   children,
 }: FoodImageProps) {
   const lang = useLang()
-  const url = src ?? (recipeId ? recipes[recipeId]?.image ?? `/images/food/${recipeId}.jpg` : undefined)
+  const path = src ?? (recipeId ? recipes[recipeId]?.image ?? `/images/food/${recipeId}.jpg` : undefined)
+  const url = path && asset(path)
   // Load state is keyed by url: a new url derives 'loading' during render (no effect race where a cached
   // image fires onLoad before a reset effect and stays invisible).
   const [loadState, setLoadState] = useState<{ url?: string; state: 'loaded' | 'error' } | null>(null)

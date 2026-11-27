@@ -5,7 +5,7 @@ import { closeSheet, toast } from '../../app'
 import { family, ingredients } from '../../data'
 import { formatEUR, tNow, useLang, useT, useTp } from '../../i18n'
 import { useGroceryList, usePantry, useSelectedStore, useWeek } from '../../store'
-import { Avatar, ListGroup, ListRow, Screen, ease, haptic } from '../../ui'
+import { Avatar, ListGroup, ListRow, Screen, asset, ease, haptic } from '../../ui'
 import { atStore, listText, sum } from './shared'
 import { T } from './strings'
 
@@ -67,7 +67,7 @@ export function ShareSheet() {
       <div className="space-y-5 px-4 pb-4">
         {/* what is being shared */}
         <div className="flex items-center gap-3 rounded-[14px] bg-bg-grouped-2 p-3">
-          <img src="/icon.svg" alt="" className="size-12 shrink-0 rounded-[11px] shadow-[0_0_0_0.5px_var(--separator)]" />
+          <img src={asset('/icon.svg')} alt="" className="size-12 shrink-0 rounded-[11px] shadow-[0_0_0_0.5px_var(--separator)]" />
           <div className="min-w-0 flex-1">
             <div className="truncate text-headline text-label">
               {t(T.listTitle)} · {t(week.label)}

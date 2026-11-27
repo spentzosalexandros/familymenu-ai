@@ -2,6 +2,8 @@
 
 > 🇬🇷 Ελληνικά παρακάτω · 🇬🇧 [English below](#english)
 
+**▶ Δοκιμάστε το online / Try it online: https://spentzosalexandros.github.io/familymenu-ai/**: σε υπολογιστή ή κινητό, χωρίς εγκατάσταση / on a computer or a phone, nothing to install.
+
 ## Τι είναι
 
 Ένα **διαδραστικό, clickable mockup εφαρμογής iOS** για το FamilyMenu AI: τον έξυπνο εβδομαδιαίο προγραμματιστή οικογενειακών γευμάτων για γονείς στην Ελλάδα (3,99 €/μήνα μετά από 7 μέρες δωρεάν δοκιμή).
@@ -15,7 +17,7 @@
 
 ## Πώς τρέχει
 
-Χρειάζεστε [Node.js](https://nodejs.org) 20 ή νεότερο.
+Ο πιο γρήγορος τρόπος είναι το online link παραπάνω, που ενημερώνεται μόνο του με κάθε push στο `main`. Για να το τρέξετε τοπικά χρειάζεστε [Node.js](https://nodejs.org) 20 ή νεότερο.
 
 ```bash
 npm install
@@ -138,7 +140,7 @@ Everything runs on **realistic demo data**. There is no real AI, backend, live p
 
 ## How to run
 
-You need [Node.js](https://nodejs.org) 20 or newer.
+The quickest way is the online link at the top, which updates itself on every push to `main`. To run it locally you need [Node.js](https://nodejs.org) 20 or newer.
 
 ```bash
 npm install
